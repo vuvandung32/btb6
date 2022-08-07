@@ -29,9 +29,7 @@ public class series {
     public void setThoiLuongTb(int thoiLuongTb) {
         this.thoiLuongTb = thoiLuongTb;
     }
-
-
-
+    //thong tin film
     @Override
     public String toString() {
         return  

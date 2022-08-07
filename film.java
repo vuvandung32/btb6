@@ -3,6 +3,7 @@ public class film {
     private String tieuDe;
     private String theLoai;
     private Double ranKing;
+    private String daoDien;
 
     // public film(String id, String tieude, String theloai, Double ranking) {
     //     this.id = id;
@@ -14,6 +15,12 @@ public class film {
     public film() {
         super();
     }
+    public String getdaodien() {
+        return this.daoDien;
+    }
+    public void setdaoDien(String daoDien) {
+        this.daoDien = daoDien;}
+
 
 
     public String getId() {
@@ -47,15 +54,15 @@ public class film {
     public void setRanKing(Double ranKing) {
         this.ranKing = ranKing;
     }
-
-
+    //thông tin film
     @Override
     public String toString() {
         return 
             " id='" + getId() + "'" +
             ", tieuDe='" + getTieuDe() + "'" +
             ", theLoai='" + getTheLoai() + "'" +
-            ", ranKing='" + getRanKing() + "'" 
+            ", ranKing='" + getRanKing() + "'" +
+            ", daoDien='" + getdaodien() + "'" 
            ;
     }
 

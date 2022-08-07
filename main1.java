@@ -15,6 +15,30 @@ public class main1 {
     film2.setRanKing(3.1);
     film2.setTheLoai(enum1.COMEDY.name());
     film2.setTieuDe("bảo vệ gái làng");
+    film2.setdaoDien("phạm văn tuân");
+
+
+    film film21 = new film();
+    film21.setId("F21");
+    film21.setRanKing(5.1);
+    film21.setTheLoai(enum1.COMEDY.name());
+    film21.setTieuDe("cả làng ế vợ");
+    film21.setdaoDien("vũ anh dũng");
+
+    film film22 = new film();
+    film22.setId("F22");
+    film22.setRanKing(2.1);
+    film22.setTheLoai(enum1.COMEDY.name());
+    film22.setTieuDe("săn sàng đổ máu");
+    film22.setdaoDien("phạm quang vinh");
+
+    film film23 = new film();
+    film23.setId("F22");
+    film23.setRanKing(2.0);
+    film23.setTheLoai(enum1.COMEDY.name());
+    film23.setTieuDe("ăn cướp trên giàn muớp");
+    film23.setdaoDien("nguyễn văn viên");
+
 
     film film3 = new film();
     film3.setId("F13");
@@ -93,39 +117,47 @@ public class main1 {
     sr[2] = series3;
     sr[3]= series4;
     sr[4]= series5;
+    film fl []= new film[4];
+    fl[0]= film2;
+    fl[1]= film21;
+    fl[2]= film22;
+    fl[3]= film23;
 
-    // System.out.println("ds phim");
-    // for (movie movie : mv) {
-    //   System.out.println(movie.toString());
-    // }
+    //in ra thông tin film thao movie
+    System.out.println("ds phim");
+    for (movie movie : mv) {
+      System.out.println(movie.toString());
+    }
+    //in ra thông tin film theo series
 
-    // System.out.println("ds sr phim");
-    // for (series series : sr) {
-    //   System.out.println(series.toString());
-    // }
+    System.out.println("ds sr phim");
+    for (series series : sr) {
+      System.out.println(series.toString());
+    }
+    //nhập từ tìm film theo movie
+    Scanner scanner = new Scanner(System.in);
+    System.out.println( "nhập từ khóa tiêu đề film:");
+    String tenFilm = scanner.nextLine();
+    for (int i=0; i<mv.length;i++ ) {
+      if(mv[i].film.getTieuDe().contains(tenFilm)){
+        System.out.println(mv[i].toString());
 
-    // Scanner scanner = new Scanner(System.in);
-    // System.out.println( "nhập từ khóa tiêu đề film:");
-    // String tenFilm = scanner.nextLine();
-    // for (int i=0; i<mv.length;i++ ) {
-    //   if(mv[i].film.getTieuDe().contains(tenFilm)){
-    //     System.out.println(mv[i].toString());
-
-    //   }
-
-      
-    // }
-
-    // System.out.println("nhap series film");
-    // String tenSeries = scanner.nextLine();
-    // for (series series : sr) {
-    //   if(series.film.getTieuDe().contains(tenSeries)){
-    //     System.out.println(series.toString());
-    //   }
+      }
 
       
-    // }
+    }
+    //tìm film theo series
+    System.out.println("nhap tên  film");
+    String tenSeries = scanner.nextLine();
+    for (series series : sr) {
+      if(series.film.getTieuDe().contains(tenSeries)){
+        System.out.println(series.toString());
+      }
 
+      
+    }
+
+    //in ra thông tin fill có ranking thấp nhất movie
     double thapNhatranKing = mv[0].film.getRanKing();
     for (int i=0 ; i<mv.length; i++) {
       
@@ -137,13 +169,36 @@ public class main1 {
       
       
     }
+    //in ra thông tin fill có ranking thấp nhất movie
+    double thapNhatranKing2 = sr[0].film.getRanKing();
+    for(int i=0;i<sr.length;i++){
+      if(sr[i].film.getRanKing()<thapNhatranKing2){
+        thapNhatranKing2=sr[i].film.getRanKing();
+        System.out.println(sr[i].toString());
+      }
+    }
+    //tim tên đạo diễn có ranking thấp nhất thẻ loại conedy
 
+    Double rkconedyThapNhat = fl[0].getRanKing();
+    for(int i=0 ;i<fl.length;i++){
+      if(fl[i].getRanKing()<rkconedyThapNhat){
+        rkconedyThapNhat =fl[i].getRanKing();
+      
+      }
+    }
 
-   
+    for (film film : fl) {
+      if(film.getRanKing()==rkconedyThapNhat){
+        System.out.println("tác gỉa của film có ranking thấp nhất là : "+film.getdaodien());
+      }}
     
 
+
+
+     
   }
 
+  //khai báo enum
   enum enum1 {
     HORROR,
     COMEDY,

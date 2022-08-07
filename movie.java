@@ -22,9 +22,7 @@ public class movie extends film {
     public void setFilm(film film) {
         this.film = film;
     }
-
-
-
+    //thông tin film
     @Override
     public String toString() {
         return 
